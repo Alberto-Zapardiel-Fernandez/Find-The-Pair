@@ -3,23 +3,19 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-carta',
   templateUrl: './carta.component.html',
-  styleUrls: ['./carta.component.css']
+  styleUrls: ['./carta.component.css'],
 })
 export class CartaComponent implements OnInit {
   public card: any[] = [];
   public number: number[] = [];
   public cards: number[] = [];
   public counter: number = 0;
-  public cardMount: number;
-  public decision: string;
+  public cardMount: number = 0;
+  public decision: string = '';
   public isChecking: boolean = false;
 
   ngOnInit(): void {
-    this.cardMount = parseInt(prompt('CUANTAS CARTAS QUIERES? (NÚMERO PAR-MAXIMO 24)'));
-    while (this.cardMount % 2 == 1 || this.cardMount == 0 || isNaN(this.cardMount)) {
-      this.cardMount = parseInt(prompt('NÚMERO PAR!'));
-    }
-    if (this.cardMount >= 24) this.cardMount = 24;
+    this.cardMount = 16;
     for (let w = 1; w <= this.cardMount / 2; w++) {
       this.cards.push(w);
       this.cards.push(w);
@@ -33,11 +29,11 @@ export class CartaComponent implements OnInit {
     }
   }
 
-  getId(event, e) {
+  getId(event: any, e: any) {
     if (!this.isChecking) {
-      this.card.push(e.path[0]);
-      e.path[0].classList.add('clicked');
-      this.number.push(event);
+      this.card.push(event.target);
+      event.target.classList.add('clicked');
+      this.number.push(e);
       if (this.number.length == 2) {
         this.isChecking = true;
         setTimeout(() => {
@@ -46,7 +42,7 @@ export class CartaComponent implements OnInit {
             this.card[1].classList.add('got');
             this.decision = 'Bien!';
             this.counter++;
-            this.card = []
+            this.card = [];
           } else {
             this.card[0].classList.remove('clicked');
             this.card[1].classList.remove('clicked');
@@ -56,16 +52,11 @@ export class CartaComponent implements OnInit {
           this.number = [];
           if (this.counter == this.cardMount / 2) {
             this.decision = 'Muy bien terminaste!';
-            let result = confirm('Volver a jugar?');
-            if (result) {
-              location.assign('htttp://castillodeoropesa.es/cards.html');
-            }
+            confirm('Lo has conseguido!');
           }
           this.isChecking = false;
         }, 400);
       }
     }
   }
-
-
 }

@@ -1,32 +1,37 @@
-.main{
+.main {
+  width: 100vw;
   height: 100vh;
   display: grid;
-  grid-template-columns:repeat(6,1fr);
-  grid-template-rows: repeat(5,1fr);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(5, 1fr);
   justify-content: center;
   background: #eeeeee;
-  padding-left:5%;
-  padding-right:5%;
+  padding-left: 5%;
+  padding-right: 5%;
+  justify-content: center;
 }
-.modal{
-  width: 100%;
-  height: 10%;
+
+.modal {
+  border-radius: .5rem;
+  align-items: center;
+  grid-column: 1/span 4;
+  width: 50vw;
+  height: fit-content;
   bottom: 0;
   color: white;
   font-size: 2em;
-  position: absolute;
-  background: hsla(0,0%,0%,.5);
+  position: relative;
+  background: hsla(0, 0%, 0%, .5);
   text-align: center;
-  display: grid;
-  justify-content: center;
-  align-items: center;
   z-index: 10;
+  margin: 0 auto;
 }
-.card{
+
+.card {
   display: grid;
   border-radius: .5rem;
   width: auto;
-  background: hsl(180,40%,50%);
+  background: hsl(180, 40%, 50%);
   border: 2px solid black;
   color: white;
   font-weight: bold;
@@ -36,15 +41,18 @@
   align-items: center;
   justify-content: center;
 }
-.card:hover{
-  border: 3px solid hsl(1,50%,50%);
+
+.card:hover {
+  border: 3px solid hsl(1, 50%, 50%);
 }
-.clicked{
+
+.clicked {
   font-size: 50px;
   transition: all 0.3s;
   pointer-events: none;
 }
-.got{
+
+.got {
   opacity: 0;
   pointer-events: none;
 }
