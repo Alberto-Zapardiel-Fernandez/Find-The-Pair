@@ -1,4 +1,18 @@
-# FindThePair
+# Find-The-Pair
+Juego de cartas, Find the Pair
+
+Al hacer click aparece el número oculto, si coincide con el siguiente que demos la vuelta lo dará por bueno.
+En caso contrario volverán a su estado inicial.
+
+*8 parejas - 16 cartas
+
+Creado en Angular en su versión 6 y Angular CLI.
+IDE: IntelliJ
+
+---2023---
+Actualizado a Angular 13
+Visual Studio Code
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.4.
 
