@@ -1,0 +1,4 @@
+<div class="main">
+<div class="modal">{{decision | uppercase}}</div>
+<div (click)="getId(card, $event)" [id]="card" class="card" *ngFor="let card of cards">{{card}}</div>
+</div>
